@@ -104,3 +104,14 @@ input:focus {
     font-weight: bold;
     box-shadow: 0px 0px 10px black;
 }
+
+.error_msg {
+    margin: 0;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 25px;
+    color: red;
+}
+
+.error_input {
+    box-shadow: 0px 0px 15px red;
+}
