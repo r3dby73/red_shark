@@ -49,6 +49,12 @@ class RegisterUser
         if(mb_strlen($this->password) < 8)
             $this->errors[] = 'incorrectPasswordLen';
     }
+
+    public function checkStrongPassword()
+    {
+        if(ctype_alpha($this->password) || ctype_digit($this->password))
+            $this->errors[] = 'weakPassword';
+    }
 }
 
 ?>
