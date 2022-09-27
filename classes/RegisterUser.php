@@ -26,6 +26,12 @@ class RegisterUser
         if($this->email == '')
             $this->errors[] = 'emptyEmail';
     }
+
+    public function checkLoginLen()
+    {
+        if(mb_strlen($this->login) < 4)
+            $this->errors[] = 'incorrectLoginLen';
+    }
 }
 
 ?>
