@@ -15,6 +15,12 @@ document.forms.log_form.onsubmit = function(event) {
         success: function(data) {
             if(data.errors.length == 0)
                 window.location.replace('../html/users.html');
+
+            $('p[name="login_error"]').attr('hidden', true);
+            $('input[name="login"]').removeClass('error_input');
+            $('p[name="password_error"]').attr('hidden', true);
+            $('input[name="password"]').removeClass('error_input');
+            $('p[name="auth_error"]').attr('hidden', true);
         }
     });
 };
