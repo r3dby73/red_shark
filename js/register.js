@@ -17,7 +17,8 @@ document.forms.register_form.onsubmit = function(event) {
             email: email
         },
         success: function(data) {
-            
+            if(data.errors.length == 0)
+                window.location.replace('../html/login.html');
         }
     });
 };
