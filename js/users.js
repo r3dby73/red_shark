@@ -16,6 +16,7 @@ window.onload = function(event) {
                             '<td>' + user['email'] + '</td>'
                         + '</tr>'
                     );
+                    $('p[name="login"]').text('Hi, ' + user['login']);
                 }
                 else
                 {
