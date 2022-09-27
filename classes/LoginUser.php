@@ -20,6 +20,19 @@ class LoginUser
         if($this->password == '')
             $this->errors[] = 'emptyPassword';
     }
+
+    public function isExists()
+    {
+        $db_path = '../db/users.json';
+        if(file_exists($db_path))
+        {
+            $db = json_decode(file_get_contents($db_path), true);
+            foreach($db['redShark']['users'] as $user)
+                if(($this->login == $user['login']) && ($this->password == $user['password']))
+                    return;
+        }
+        $this->errors[] = 'incorrectInput';
+    }
 }
 
 ?>
