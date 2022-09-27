@@ -14,6 +14,18 @@ class RegisterUser
     }
 
     public function getErrors() { return $this->errors; }
+
+    public function checkEmptyInputs()
+    {
+        if($this->login == '')
+            $this->errors[] = 'emptyLogin';
+        if($this->password == '')
+            $this->errors[] = 'emptyPassword';
+        if($this->confirm_password == '')
+            $this->errors[] = 'emptyConfirmPassword';
+        if($this->email == '')
+            $this->errors[] = 'emptyEmail';
+    }
 }
 
 ?>
