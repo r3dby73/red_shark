@@ -67,6 +67,21 @@ class RegisterUser
         if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
             $this->errors[] = 'incorrectEmail';
     }
+
+    public function checkUniq()
+    {
+        $db_path = '../db/users.json';
+        if(!file_exists($db_path))
+            return;
+        else
+        {
+            $db = json_decode(file_get_contents($db_path), true);
+            if($login == $db['redShark']['users']['login'])
+                $this->errors[] = 'existsLogin';
+            else if($email == $db['redShark']['users']['email'])
+                $this->errors[] = 'existsEmail';
+        }
+    }
 }
 
 ?>
