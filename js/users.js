@@ -31,3 +31,19 @@ window.onload = function(event) {
         }
     });
 };
+
+$('a[name="logout"]').click(function(event) {
+    event.preventDefault();
+
+    $.ajax({
+        url: '../php/logout.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if (data.status)
+                window.location.replace('../html/register.html');
+            else
+                alert('Error, unable to log out!');
+        }
+    });
+});
