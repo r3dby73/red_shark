@@ -27,6 +27,15 @@ document.forms.register_form.onsubmit = function(event) {
         success: function(data) {
             if(data.errors.length == 0)
                 window.location.replace('../html/login.html');
+
+            $('p[name="login_error"]').attr('hidden', true);
+            $('input[name="login"]').removeClass('error_input');
+            $('p[name="password_error"]').attr('hidden', true);
+            $('input[name="password"]').removeClass('error_input');
+            $('p[name="confirm_password_error"]').attr('hidden', true);
+            $('input[name="confirm_password"]').removeClass('error_input');
+            $('p[name="email_error"]').attr('hidden', true);
+            $('input[name="email"]').removeClass('error_input');
         }
     });
 };
