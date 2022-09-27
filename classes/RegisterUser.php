@@ -76,10 +76,13 @@ class RegisterUser
         else
         {
             $db = json_decode(file_get_contents($db_path), true);
-            if($login == $db['redShark']['users']['login'])
-                $this->errors[] = 'existsLogin';
-            else if($email == $db['redShark']['users']['email'])
-                $this->errors[] = 'existsEmail';
+            foreach($db['redShark']['users'] as $user)
+            {
+                if($this->login == $user['login'])
+                    $this->errors[] = 'existsLogin';
+                if($this->email == $user['email'])
+                    $this->errors[] = 'existsEmail';
+            }
         }
     }
 }
