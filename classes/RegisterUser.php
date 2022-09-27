@@ -61,6 +61,12 @@ class RegisterUser
         if(strcmp($this->password, $this->confirm_password) != 0)
             $this->errors[] = 'mismatchPasswords';
     }
+
+    public function checkEmail()
+    {
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
+            $this->errors[] = 'incorrectEmail';
+    }
 }
 
 ?>
