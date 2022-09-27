@@ -43,6 +43,12 @@ class RegisterUser
                     return;
                 }
     }
+
+    public function checkPasswordLen()
+    {
+        if(mb_strlen($this->password) < 8)
+            $this->errors[] = 'incorrectPasswordLen';
+    }
 }
 
 ?>
