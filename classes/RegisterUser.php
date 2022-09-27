@@ -32,6 +32,17 @@ class RegisterUser
         if(mb_strlen($this->login) < 4)
             $this->errors[] = 'incorrectLoginLen';
     }
+
+    public function checkLogin()
+    {
+        for($i = 0; $i < mb_strlen($this->login); $i++)
+            if(!ctype_alpha($this->login[$i]))
+                if(!ctype_digit($this->login[$i]))
+                {
+                    $this->errors[] = 'incorrectLogin';
+                    return;
+                }
+    }
 }
 
 ?>
