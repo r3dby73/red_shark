@@ -10,6 +10,8 @@ class LoginUser
         $this->login = $login;
         $this->password = $password;
     }
+
+    public function getErrors() { return $this->errors; }
 }
 
 ?>
