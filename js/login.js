@@ -13,7 +13,8 @@ document.forms.log_form.onsubmit = function(event) {
             password: password
         },
         success: function(data) {
-
+            if(data.errors.length == 0)
+                window.location.replace('../html/users.html');
         }
     });
 };
