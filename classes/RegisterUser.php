@@ -55,6 +55,12 @@ class RegisterUser
         if(ctype_alpha($this->password) || ctype_digit($this->password))
             $this->errors[] = 'weakPassword';
     }
+
+    public function comparePasswords()
+    {
+        if(strcmp($this->password, $this->confirm_password) != 0)
+            $this->errors[] = 'mismatchPasswords';
+    }
 }
 
 ?>
