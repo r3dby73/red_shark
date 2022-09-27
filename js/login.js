@@ -1,3 +1,17 @@
+window.onload = function(event) {
+    event.preventDefault();
+
+    $.ajax({
+        url: '../php/checkAuth.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if(data.status)
+                window.location.replace('../html/users.html');
+        }
+    });
+};
+
 document.forms.log_form.onsubmit = function(event) {
     event.preventDefault();
 
