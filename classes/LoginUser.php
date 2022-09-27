@@ -12,6 +12,14 @@ class LoginUser
     }
 
     public function getErrors() { return $this->errors; }
+
+    public function checkEmptyInputs()
+    {
+        if($this->login == '')
+            $this->errors[] = 'emptyLogin';
+        if($this->password == '')
+            $this->errors[] = 'emptyPassword';
+    }
 }
 
 ?>
