@@ -12,6 +12,8 @@ class RegisterUser
         $this->confirm_password = $confirm_password;
         $this->email = $email;
     }
+
+    public function getErrors() { return $this->errors; }
 }
 
 ?>
