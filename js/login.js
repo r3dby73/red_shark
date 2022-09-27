@@ -29,6 +29,31 @@ document.forms.log_form.onsubmit = function(event) {
             $('p[name="password_error"]').attr('hidden', true);
             $('input[name="password"]').removeClass('error_input');
             $('p[name="auth_error"]').attr('hidden', true);
+
+            data.errors.forEach(function(error) {
+                switch(error)
+                {
+                    case 'emptyLogin':
+                        $('p[name="login_error"]').text('Enter login');
+                        $('p[name="login_error"]').removeAttr('hidden');
+                        $('input[name="login"]').addClass('error_input');
+                        break;
+
+                    case 'emptyPassword':
+                        $('p[name="password_error"]').text('Enter password');
+                        $('p[name="password_error"]').removeAttr('hidden');
+                        $('input[name="password"]').addClass('error_input');
+                        break;
+
+                    case 'incorrectInput':
+                        if(!inArray(data.errors, 'emptyLogin', 'emptyPassword'))
+                        {
+                            $('p[name="auth_error"]').text('Incorrect login or password');
+                            $('p[name="auth_error"]').removeAttr('hidden');
+                        }
+                        break;
+                }
+            });
         }
     });
 };
