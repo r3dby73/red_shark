@@ -28,6 +28,12 @@ class Database
             file_put_contents($this->db_path, json_encode($db));
         }
     }
+
+    public function readAll()
+    {
+        $db = json_decode(file_get_contents($this->db_path), true);
+        return $db;
+    }
 }
 
 ?>
