@@ -6,6 +6,12 @@ window.onload = function(event) {
         method: 'GET',
         dataType: 'json',
         success: function(data) {
+            if(data.login == null)
+            {
+                window.location.replace('../html/register.html');
+                return;
+            }
+
             data.users.forEach(function(user) {
                 if(data.login == user['login'])
                 {
